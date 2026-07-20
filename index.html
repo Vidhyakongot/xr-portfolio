@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vidhya Kongot Panchavady - XR Designer &amp; Developer</title>
+<meta name="description" content="Vidhya Kongot Panchavady - XR Designer & Developer working across AR/VR training systems, interaction design, robotics, and industrial usability testing.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Inline icon sprite (hand-drawn monoline icons, no external icon library) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <symbol id="icon-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v3M12 18.5v3M21.5 12h-3M5.5 12h-3M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1M18.4 18.4l-2.1-2.1M7.7 7.7L5.6 5.6"/></g></symbol>
+  <symbol id="icon-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></g></symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></g></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="M3.5 6.5 12 13l8.5-6.5" stroke-linecap="round"/></g></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="M7.2 3.5h2.4l1.2 4-1.9 1.5a11 11 0 0 0 5.1 5.1l1.5-1.9 4 1.2v2.4c0 1-.8 1.8-1.8 1.7A16 16 0 0 1 3.5 5.3c-.1-1 .7-1.8 1.7-1.8Z"/></symbol>
+  <symbol id="icon-linkedin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2"/><path d="M8 10.5v6M8 7.8v.1M12 16.5v-3.7c0-1.4 1-2.3 2.2-2.3 1.2 0 1.8.9 1.8 2.3v3.7"/></g></symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M12 21s6.5-6.1 6.5-11A6.5 6.5 0 0 0 5.5 10c0 4.9 6.5 11 6.5 11Z"/><circle cx="12" cy="10" r="2.2"/></g></symbol>
+  <symbol id="icon-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><circle cx="12" cy="9" r="5.2"/><path d="M9 13.3 7.6 20l4.4-2.3 4.4 2.3-1.4-6.7"/></g></symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.5l4.8 4.8L19.5 7"/></symbol>
+  <symbol id="icon-ar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V4.8A.8.8 0 0 1 4.8 4H8M16 4h3.2a.8.8 0 0 1 .8.8V8M20 16v3.2a.8.8 0 0 1-.8.8H16M8 20H4.8a.8.8 0 0 1-.8-.8V16"/><path d="M12 8v8M8 12h8"/></g></symbol>
+  <symbol id="icon-vr" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="3" y="7.5" width="8.2" height="6.4" rx="2"/><rect x="12.8" y="7.5" width="8.2" height="6.4" rx="2"/><path d="M11.2 10.2h1.6"/></g></symbol>
+  <symbol id="icon-unity" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 3.2 20 8v8l-8 4.8L4 16V8Z"/><path d="M12 3.2v17.6M4 8l8 4.8 8-4.8"/></g></symbol>
+  <symbol id="icon-unreal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M4.7 9.5c2.4-1.6 4.8-1 5.3 1.4.5-2.9 3.4-3.6 5.2-1.9 1.7 1.6.9 4.7-1 6.7-1.4 1.5-2.9 2-2.9 2s-.7-1.8-.6-3.6c-1.7 1.7-3.6 1.1-4.3-.6-.6-1.5-.4-3 .3-4Z"/></g></symbol>
+  <symbol id="icon-blender" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><ellipse cx="12" cy="12" rx="8.5" ry="3.4"/></g></symbol>
+  <symbol id="icon-swift" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M4 6c5 1 9 3.5 11.5 7.2-3.6-.6-6.8-1.9-9.3-4C7.8 12 11 15 15.5 16.6c-3 .6-6.3-.1-9-2 1.8 2.4 4.7 3.8 8 3.6-3.6 1.6-8 1-10.5-2 1 .2 1.8.1 2.3-.2C3.6 14.4 2.6 10.8 4 6Z"/></symbol>
+  <symbol id="icon-python" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><path d="M12 3.3c-3 0-3.4 1.3-3.4 2.2v2.3h3.5v.6H6.9c-1.2 0-3 1.5-3 4.6 0 3 1.6 4.6 3 4.6h1.5v-2.2c0-1.6 1.4-2.9 3.1-2.9h3.4c1.1 0 2-1 2-2.2V5.5c0-1-1.4-2.2-4.9-2.2Z"/><path d="M12 20.7c3 0 3.4-1.3 3.4-2.2v-2.3h-3.5v-.6h5.2c1.2 0 3-1.5 3-4.6 0-3-1.6-4.6-3-4.6H15.6v2.2c0 1.6-1.4 2.9-3.1 2.9H9.1c-1.1 0-2 1-2 2.2v3.5c0 1 1.4 2.2 4.9 2.2Z"/><circle cx="9.6" cy="5.7" r=".5" fill="currentColor" stroke="none"/><circle cx="14.4" cy="18.3" r=".5" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="icon-robot" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><path d="M5 10 3.5 8.5M19 10l1.5-1.5"/><circle cx="12" cy="6.5" r="1.6"/><path d="M12 8.1v2"/><rect x="6" y="10" width="12" height="9" rx="2.5"/><circle cx="9.5" cy="14.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></g></symbol>
+  <symbol id="icon-cursor" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="m6 4 4.6 15.4 2.1-5.9 5.9-2.1L6 4Z"/></symbol>
+  <symbol id="icon-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6S2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.6"/></g></symbol>
+</defs>
+</svg>
+
+<div class="blueprint" aria-hidden="true"></div>
+<div class="corner-marks" aria-hidden="true">
+  <span class="c-tl"></span><span class="c-tr"></span><span class="c-bl"></span><span class="c-br"></span>
+</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <div class="container">
+    <a class="brand" href="#top">
+      <span>Vidhya Kongot Panchavady</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark and light theme">
+        <svg class="icon icon-sun" aria-hidden="true"><use href="#icon-sun"></use></svg>
+        <svg class="icon icon-moon" aria-hidden="true"><use href="#icon-moon"></use></svg>
+      </button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <svg class="icon icon-menu-open" aria-hidden="true"><use href="#icon-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Herzogenaurach, Germany · Available short notice</p>
+        <h1 class="hero-name">Vidhya Kongot<br>Panchavady</h1>
+        <p class="hero-role">XR Designer &amp; Developer</p>
+        <p class="hero-intro">I design and develop industrial AR/VR experiences, spatial interactions, and immersive training applications using Unity, Unreal Engine, ARKit, and RealityKit. My work combines interaction design, prototyping, usability testing, and technical implementation.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View case studies</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+        <dl class="hero-meta">
+          <div><strong>M.Eng.</strong> Mechatronics &amp; Cyber-Physical Systems</div>
+          <div><strong>Focus</strong> XR Design · Interaction Design · Prototyping · User Testing</div>
+        </dl>
+      </div>
+
+      <div class="hero-art">
+        <img src="assets/images/profile/profile.jpg" alt="Portrait of Vidhya Kongot Panchavady" loading="lazy" width="896" height="1184">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">About</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <div class="about-grid">
+        <dl class="about-side">
+          <div>
+            <dt>Based in</dt>
+            <dd>Herzogenaurach, Bavaria, Germany</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>AR/VR, robotics, human-centered design</dd>
+          </div>
+          <div>
+            <dt>Languages</dt>
+            <dd>English (fluent), German (A2), Malayalam (native)</dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>Available on short notice</dd>
+          </div>
+        </dl>
+        <div class="about-copy reveal">
+          <p>I'm a mechatronics engineer who builds at the intersection of immersive technology, robotics, and human-centered design - and tests it where it actually has to work: real factory floors, with real machine operators, under real production constraints.</p>
+          <p>I recently completed my Master's thesis at Robert Bosch, spending months on whether - and how - augmented reality can help someone learn to run a machine faster and safer. That meant building an AR training app, testing it directly with production-floor operators, and turning what I learned into UX decisions and recommendations for Bosch's manufacturing training strategy. The thesis has been submitted and I'm currently awaiting results.</p>
+          <p>I didn't start in XR. I've worked as a quality analyst tightening up sprint processes, and as a project management intern building the kind of structured, data-backed presentations that make execs trust a recommendation. That background shows up in how I work now - I don't just prototype interesting VR scenarios, I validate them with the people who'll actually use them, and document the "why" clearly enough that someone else can pick it up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Experience</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <ol class="timeline">
+        <li class="timeline-item reveal">
+          <div class="timeline-date">Oct 2025 - Mar 2026</div>
+          <h3 class="timeline-role">Master's Thesis - AR for Machine Operator Training</h3>
+          <p class="timeline-org">Robert Bosch GmbH, Bühl, Germany</p>
+          <p class="timeline-desc">Set out to answer whether AR can meaningfully improve machine operator training. Built AR scenarios in Xcode using ARKit, RealityKit, and Swift, tested directly on the production floor. Combined LiDAR scanning, Gaussian splatting, and AI reconstruction tools in a hybrid Blender pipeline to model machines without CAD data. Turned testing results into recommendations for Bosch's training strategy, presented to management through documentation and workshops.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <div class="timeline-date">Apr 2025 - Sep 2025</div>
+          <h3 class="timeline-role">VR Intern</h3>
+          <p class="timeline-org">Robert Bosch GmbH, Bühl, Germany · Digital Innovation Campus</p>
+          <p class="timeline-desc">Built a VR environment for Bosch's Bühl Family Day - a public-facing experience, not an internal prototype. Worked with fellow interns to concept and build a complete VR "time-travel" experience end-to-end. Realized both projects across Unity and Unreal Engine, handled 3D modeling in Blender, and ran ongoing research evaluating new XR tools for the team.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <div class="timeline-date">Apr 2022 - Apr 2023</div>
+          <h3 class="timeline-role">Quality Analyst</h3>
+          <p class="timeline-org">HealthPlix Technologies, Bangalore, India</p>
+          <p class="timeline-desc">Spent a year making a healthtech team's development process actually work: managed Zoho CRM operations end-to-end, ran market research and data analysis to sharpen marketing strategy, and built dashboards giving leadership clearer insight. Process efficiency improved 15% - where I built the analytical habits I still use today.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <div class="timeline-date">Apr 2021 - Oct 2021</div>
+          <h3 class="timeline-role">Project Management Intern</h3>
+          <p class="timeline-org">ERE Business Solutions, Kerala, India</p>
+          <p class="timeline-desc">Managed client communication end-to-end - gathering requirements, giving progress updates, collecting feedback. Tested every website or application myself before it went to a client. Where I learned that a good project manager catches problems before the client ever sees them.</p>
+        </li>
+        <li class="timeline-item reveal">
+          <div class="timeline-date">Sep 2020 - Dec 2020</div>
+          <h3 class="timeline-role">Engineer Intern - Production Team</h3>
+          <p class="timeline-org">Museigen Tech Labs, Palakkad, Kerala, India</p>
+          <p class="timeline-desc">First real exposure to a product development team, working hands-on within a production environment early in my career.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Projects</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+
+      <!-- Case Study 1: AR Training (Bosch) -->
+      <article class="case-study reveal">
+        <div class="case-head">
+          <div>
+            <h3 class="case-title">AR Training System - Industrial Machine Maintenance</h3>
+            <p class="case-meta">Master's Thesis · TH Deggendorf, in cooperation with Robert Bosch GmbH · Oct 2025 - Mar 2026</p>
+          </div>
+          <span class="case-status">Completed</span>
+        </div>
+
+        <div class="case-body">
+          <div class="case-block">
+            <h4>Context</h4>
+            <p>Paper-based maintenance instructions are genuinely dangerous for the right task: a 42-step wheel-change procedure where operators mentally translate 2D diagrams into 3D actions, performed infrequently enough that memory doesn't reliably carry over - and where a mistake at high speed is a safety incident, not an inconvenience.</p>
+          </div>
+          <div class="case-block">
+            <h4>Challenge</h4>
+            <p>Replace the paper manual entirely with an iPad-based AR training app, without manufacturer CAD data available for the machine, and without slowing operators down relative to the process they already knew.</p>
+          </div>
+          <div class="case-block">
+            <h4>My Role</h4>
+            <p>Sole designer and developer. Owned the full pipeline - 3D reconstruction, AR interaction design, safety-gate logic, and on-site testing - and reported findings directly to Bosch management.</p>
+          </div>
+          <div class="case-block">
+            <h4>Process</h4>
+            <ul>
+              <li>Hybrid 3D reconstruction - LiDAR scanning + Gaussian splatting + AI tools (Reality Scan, Polycam, SAM 3D, Meshy AI), refined in Blender into an AR-ready model with zero CAD input.</li>
+              <li>AI-based PPE safety gate using GPT-4o-mini to verify vest, gloves, and boots before unlocking the procedure, at 3-5 second detection latency.</li>
+              <li>42-step guided AR walkthrough across four phases - preparation, disassembly, new-part preparation, reassembly - anchored with LiDAR-based plane detection.</li>
+            </ul>
+          </div>
+          <div class="case-block full">
+            <h4>Tools</h4>
+            <div class="tool-tags">
+              <span>Swift</span><span>ARKit</span><span>RealityKit</span><span>Xcode</span><span>Blender</span>
+              <span>LiDAR Scanning</span><span>Gaussian Splatting</span><span>Reality Scan</span><span>Polycam</span>
+              <span>SAM 3D</span><span>Meshy AI</span><span>GPT-4o-mini</span>
+            </div>
+          </div>
+          <div class="case-block">
+            <h4>Validation</h4>
+            <p>Tested three hypotheses in an on-site expert evaluation: AR enables correct task completion without a paper manual, the hybrid pipeline produces operator-recognizable models without CAD data, and GPT-4o-mini reliably handles PPE detection under real factory conditions. All three were validated - all 42 steps completed without the manual, models confirmed clearly recognizable, and added crane animation and voice guidance improved clarity.</p>
+          </div>
+          <div class="case-block">
+            <h4>Outcome</h4>
+            <p>Findings translated into concrete recommendations for Bosch's manufacturing training strategy, delivered through technical documentation and management workshops.</p>
+          </div>
+        </div>
+        <p class="confidentiality-footnote">Some implementation details and visuals are omitted due to project confidentiality.</p>
+      </article>
+
+      <!-- Case Study 2: VR Intern (Bosch) -->
+      <article class="case-study reveal">
+        <div class="case-head">
+          <div>
+            <h3 class="case-title">VR Intern - Digital Innovation Campus</h3>
+            <p class="case-meta">Robert Bosch GmbH, Bühl, Germany · Apr 2025 - Sep 2025</p>
+          </div>
+          <span class="case-status">Complete</span>
+        </div>
+
+        <div class="case-body">
+          <div class="case-block">
+            <h4>Context</h4>
+            <p>Bosch's Digital Innovation Campus wanted to explore what XR could offer in two very different formats: a polished experience for a real public audience, and an open-ended concept built from scratch with a small team.</p>
+          </div>
+          <div class="case-block">
+            <h4>Challenge</h4>
+            <p>Deliver a VR environment robust enough for non-technical visitors to use unsupervised at a public company event, while in parallel concepting and building a completely new "time-travel" VR experience end-to-end with a small team of fellow interns.</p>
+          </div>
+          <div class="case-block">
+            <h4>My Role</h4>
+            <p>XR intern on a small team. Realized both experiences across Unity and Unreal Engine, handled the 3D modeling in Blender for the assets and environments involved, and ran ongoing research evaluating new XR tools for the wider team.</p>
+          </div>
+          <div class="case-block">
+            <h4>Process</h4>
+            <ul>
+              <li>Built and polished a VR environment for Bosch's Bühl Family Day, designed for hands-on use by families and other non-technical visitors rather than an internal audience.</li>
+              <li>Concepted and built a "time-travel" VR experience with fellow interns end-to-end, from initial idea through implementation.</li>
+              <li>Ran continuous evaluation of emerging XR tools and hardware to inform the team's toolkit choices.</li>
+            </ul>
+          </div>
+          <div class="case-block full">
+            <h4>Tools</h4>
+            <div class="tool-tags">
+              <span>Unity</span><span>Unreal Engine</span><span>Blender</span><span>Miro</span><span>Jira</span><span>Confluence</span>
+            </div>
+          </div>
+          <div class="case-block">
+            <h4>Validation</h4>
+            <p>The Family Day build was tested live with real, non-technical visitors during a public event - the clearest validation available for that kind of experience. The time-travel concept was validated iteratively with the intern team and Digital Innovation Campus stakeholders throughout development.</p>
+          </div>
+          <div class="case-block">
+            <h4>Outcome</h4>
+            <p>Delivered a public-facing VR experience for Bosch's Bühl Family Day and a complete concept-to-build VR prototype with the intern team, while the ongoing XR tool research fed directly into the wider team's technology choices.</p>
+          </div>
+        </div>
+        <p class="confidentiality-footnote">Some implementation details and visuals are omitted due to project confidentiality.</p>
+      </article>
+
+      <!-- Case Study 3: VR Milling Machine -->
+      <article class="case-study reveal">
+        <div class="case-head">
+          <div>
+            <h3 class="case-title">VR Training Simulation - Industrial Milling Machine</h3>
+            <p class="case-meta">TH Deggendorf · Master's Project · Sep 2024 - Mar 2025</p>
+          </div>
+          <span class="case-status">Complete</span>
+        </div>
+
+        <div class="case-body">
+          <div class="case-block">
+            <h4>Context</h4>
+            <p>An open question worth testing directly: could a VR simulation actually teach someone to operate an industrial milling machine, rather than just demonstrate one?</p>
+          </div>
+          <div class="case-block">
+            <h4>Challenge</h4>
+            <p>Build a simulation that holds up under real use by real machine operators - not a scripted demo - and iterate the interaction design against their feedback rather than assumptions.</p>
+          </div>
+          <div class="case-block">
+            <h4>My Role</h4>
+            <p>Sole developer and designer. Built the full scenario, modeled the machine and environment, ran operator testing sessions, and led every redesign iteration.</p>
+          </div>
+          <div class="case-block">
+            <h4>Process</h4>
+            <p>Modeled the machine and environment in Blender, built the interactive scenario in Unity (C#), then handed it to real machine operators and watched where it worked and where it didn't. Their feedback drove several rounds of redesign on the UX and interaction flow.</p>
+          </div>
+          <div class="case-block">
+            <h4>Tools</h4>
+            <div class="tool-tags"><span>Unity</span><span>C#</span><span>Blender</span></div>
+          </div>
+          <div class="case-block full">
+            <h4>Validation &amp; Outcome</h4>
+            <p>Direct testing with real machine operators drove redesign until the simulation held up under real use, not just a demo - validated through the recorded walkthrough below.</p>
+          </div>
+          <div class="case-video">
+            <iframe src="https://drive.google.com/file/d/1k67dvu2lVBu8mbwxaGVc20ebk9Ttlrns/preview" title="VR Training Simulation - Industrial Milling Machine, demonstration video" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="case-gallery">
+            <figure class="gallery-item">
+              <button class="gallery-trigger" type="button" data-full="assets/images/projects/vr-milling-machine.png" data-caption="Interactive milling machine simulation">
+                <img src="assets/images/projects/vr-milling-machine.png" alt="The industrial milling machine model inside the Unity VR training simulation, shown with its start/stop control panel." loading="lazy" width="490" height="589">
+              </button>
+              <figcaption>Interactive milling machine simulation</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <button class="gallery-trigger" type="button" data-full="assets/images/projects/vr-milling-workshop.png" data-caption="Virtual training workshop environment">
+                <img src="assets/images/projects/vr-milling-workshop.png" alt="The virtual training workshop environment in Unity, showing rows of machine stations inside the simulated workshop hall." loading="lazy" width="756" height="482">
+              </button>
+              <figcaption>Virtual training workshop environment</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- Keyence feature -->
+      <article class="case-study project-feature reveal">
+        <div class="case-head">
+          <div>
+            <h3 class="case-title">VR Application - Laser Scanning Visualization (Keyence)</h3>
+            <p class="case-meta">TH Deggendorf · Master's Project · Sep 2023 - Mar 2024</p>
+          </div>
+        </div>
+        <div class="case-body">
+          <div class="feature-media">
+            <img src="assets/images/projects/keyence-machine.png" alt="3D model of the Keyence laser scanning machine built for the Unity training simulation." loading="lazy" width="361" height="420">
+          </div>
+          <div class="case-block full">
+            <p>A Unity application standing in for an expensive, not-always-available industrial laser scanner - modeled in SolidWorks, built end-to-end with real-time sensor-feedback logic so the simulation behaves like the real machine.</p>
+            <div class="tool-tags"><span>Unity</span><span>SolidWorks</span><span>Sensor Integration</span></div>
+          </div>
+          <p class="feature-gallery-label">Training environments</p>
+          <div class="case-gallery">
+            <figure class="gallery-item">
+              <button class="gallery-trigger" type="button" data-full="assets/images/projects/keyence-indoor-environment.png" data-caption="Indoor industrial training environment">
+                <img src="assets/images/projects/keyence-indoor-environment.png" alt="Unity editor view of the indoor industrial training environment used in the Keyence simulation." loading="lazy" width="704" height="458">
+              </button>
+              <figcaption>Indoor industrial training environment</figcaption>
+            </figure>
+            <figure class="gallery-item">
+              <button class="gallery-trigger" type="button" data-full="assets/images/projects/keyence-outdoor-environment.png" data-caption="Extended Unity simulation environment">
+                <img src="assets/images/projects/keyence-outdoor-environment.png" alt="Unity editor view of an outdoor city environment used to extend the Unity simulation beyond the Keyence training scenario." loading="lazy" width="689" height="457">
+              </button>
+              <figcaption>Extended Unity simulation environment</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <!-- Secondary project cards -->
+      <div class="project-cards">
+        <div class="project-card reveal">
+          <p class="case-meta">TH Deggendorf · Mar 2024 - Sep 2024</p>
+          <h3>TurtleBot3 - Autonomous Navigation &amp; SLAM</h3>
+          <p>A ROS-based robotics project exploring real-time spatial awareness - LiDAR and depth-camera sensor fusion generating a live 3D map, with navigation logic that detects obstacles and reroutes automatically.</p>
+          <div class="tool-tags"><span>ROS</span><span>URDF</span><span>SLAM</span><span>LiDAR</span></div>
+        </div>
+        <div class="project-card reveal">
+          <p class="case-meta">Bachelor's Project · Sep 2020 - Feb 2021</p>
+          <h3>MEDO-ROB - AI Sign Language Translator</h3>
+          <p>A real-time sign language translator on Raspberry Pi using Python and computer vision to recognize hand gestures, with the pipeline tuned to stay genuinely low-latency rather than noticeably delayed.</p>
+          <div class="tool-tags"><span>Python</span><span>Computer Vision</span><span>Raspberry Pi</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Skills</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+
+      <div class="skill-toolkit reveal">
+        <span class="toolkit-item"><svg class="icon"><use href="#icon-unity"></use></svg>Unity</span>
+        <span class="toolkit-item"><svg class="icon"><use href="#icon-unreal"></use></svg>Unreal</span>
+        <span class="toolkit-item"><svg class="icon"><use href="#icon-ar"></use></svg>AR</span>
+        <span class="toolkit-item"><svg class="icon"><use href="#icon-vr"></use></svg>VR</span>
+        <span class="toolkit-item"><svg class="icon"><use href="#icon-blender"></use></svg>Blender</span>
+        <span class="toolkit-item"><svg class="icon"><use href="#icon-swift"></use></svg>Swift</span>
+        <span class="toolkit-item"><svg class="icon"><use href="#icon-python"></use></svg>Python</span>
+        <span class="toolkit-item"><svg class="icon"><use href="#icon-robot"></use></svg>Robotics</span>
+        <span class="toolkit-item"><svg class="icon"><use href="#icon-cursor"></use></svg>Interaction Design</span>
+        <span class="toolkit-item"><svg class="icon"><use href="#icon-eye"></use></svg>User Testing</span>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <h3>AR/VR &amp; Wearables</h3>
+          <p>Meta Quest Pro, Meta Quest 3, iPad/iOS (ARKit, RealityKit), Apple Vision Pro (interest area)</p>
+        </div>
+        <div class="skill-group reveal">
+          <h3>XR Development</h3>
+          <p>Unreal Engine 5 (Blueprints + C++), Unity (C#), Xcode, Swift</p>
+        </div>
+        <div class="skill-group reveal">
+          <h3>3D Reconstruction &amp; Modeling</h3>
+          <p>Blender, SolidWorks, LiDAR scanning, Gaussian splatting, Reality Scan, Polycam, SAM 3D, Meshy AI</p>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Robotics</h3>
+          <p>ROS, URDF robot modeling, SLAM, LiDAR &amp; depth-camera sensor integration, Raspberry Pi</p>
+        </div>
+        <div class="skill-group reveal">
+          <h3>AI Integration</h3>
+          <p>GPT-4o-mini / OpenAI API, computer vision, gesture recognition</p>
+        </div>
+        <div class="skill-group reveal">
+          <h3>UX/UI</h3>
+          <p>Interface design, interaction concepts, user testing, usability analysis</p>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Programming</h3>
+          <p>C#, C++, Python, Swift</p>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Tools &amp; Methods</h3>
+          <p>Jira, Confluence, Git, Miro, Agile/Scrum, technical documentation</p>
+        </div>
+        <div class="skill-group reveal">
+          <h3>MS Office</h3>
+          <p>Excel, PowerPoint, Word - advanced proficiency</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Education</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <div class="edu-list">
+        <div class="edu-item reveal">
+          <div class="edu-date">Mar 2023 - Present</div>
+          <div>
+            <div class="edu-degree">M.Eng. - Mechatronics &amp; Cyber-Physical Systems</div>
+            <div class="edu-school">Technische Hochschule Deggendorf, Cham, Germany</div>
+          </div>
+        </div>
+        <div class="edu-item reveal">
+          <div class="edu-date">Jul 2017 - Jun 2021</div>
+          <div>
+            <div class="edu-degree">B.Tech. - Electronics &amp; Communication Engineering</div>
+            <div class="edu-school">APJ Abdul Kalam Technological University, Kerala, India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AWARDS ============ -->
+  <section id="awards">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Awards</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <div class="awards-list">
+        <div class="award-item reveal">
+          <svg class="icon" aria-hidden="true"><use href="#icon-award"></use></svg>
+          <div>
+            <div class="award-meta">Dec 2023 · IEEE Vehicular Technology Society, United States</div>
+            <div class="award-title">Silver Award - Tales of Tomorrow Competition</div>
+            <div class="award-desc">Awarded for an immersive visualization of the future through technical storytelling, showcased in a video editing project.</div>
+          </div>
+        </div>
+        <div class="award-item reveal">
+          <svg class="icon" aria-hidden="true"><use href="#icon-award"></use></svg>
+          <div>
+            <div class="award-meta">Dec 2021 · IEEE Power and Energy Society (PES), Kerala Chapter</div>
+            <div class="award-title">IEEE PES Outstanding Volunteer Award</div>
+            <div class="award-desc">For sustained contributions to the student and professional community, building a culture of co-evolving as students in service to humanity.</div>
+          </div>
+        </div>
+        <div class="award-item reveal">
+          <svg class="icon" aria-hidden="true"><use href="#icon-award"></use></svg>
+          <div>
+            <div class="award-meta">Sep 2020 · IPRECON 2020</div>
+            <div class="award-title">Poster Presentation, 3rd Place</div>
+            <div class="award-desc">Best project idea, IEEE International Power and Renewable Energy Conference. Awarded $150.</div>
+          </div>
+        </div>
+        <div class="award-item reveal">
+          <svg class="icon" aria-hidden="true"><use href="#icon-award"></use></svg>
+          <div>
+            <div class="award-meta">Sep 2019 · National Institute of Technology, Kerala, India</div>
+            <div class="award-title">Elevator Pitching, 3rd Prize</div>
+            <div class="award-desc">Spot ideation of a new product and public speaking competition.</div>
+          </div>
+        </div>
+      </div>
+      <p class="memberships"><strong>Memberships:</strong> IEEE (6 years), IEEE Power and Energy Society, IEEE Young Professionals, IEEE IAS</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">07</span>
+        <h2 class="section-title">Contact</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <div class="contact-grid">
+        <div class="reveal">
+          <p class="contact-lead">Let's connect.</p>
+          <p class="contact-sub">Open to roles across XR/immersive technology, Unity/Unreal development, 3D design, robotics, UX/UI, and mechatronics engineering.</p>
+        </div>
+        <div class="contact-list reveal">
+          <a href="mailto:navyakongot@gmail.com">
+            <svg class="icon" aria-hidden="true"><use href="#icon-mail"></use></svg>
+            <span><span class="contact-label">Email</span>navyakongot@gmail.com</span>
+          </a>
+          <a href="tel:+4915510275772">
+            <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+            <span><span class="contact-label">Phone</span>+49 15510275772</span>
+          </a>
+          <a href="https://linkedin.com/in/vidhya-kongot" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
+            <span><span class="contact-label">LinkedIn</span>linkedin.com/in/vidhya-kongot</span>
+          </a>
+          <span class="contact-static">
+            <svg class="icon" aria-hidden="true"><use href="#icon-pin"></use></svg>
+            <span><span class="contact-label">Location</span>Herzogenaurach, Bavaria, Germany</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <span>© <span id="year"></span> Vidhya Kongot Panchavady</span>
+      <span>Built with HTML, CSS &amp; vanilla JS</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image preview">
+      <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="">
+    <p id="lightbox-caption" class="lightbox-caption"></p>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
